@@ -133,12 +133,8 @@ void checkbuttons(void)
     
     gPollPacket[BUTTON_PORT_B] |= !DU_IN_PORT << 3;
     gPollPacket[BUTTON_PORT_B] |= !DD_IN_PORT << 2;
-    
+    gPollPacket[BUTTON_PORT_B] |= !DL_IN_PORT;
     gPollPacket[BUTTON_PORT_B] |= !DR_IN_PORT << 1;
     
-    if (SettingData.modeData != 4)
-    {
-        gPollPacket[BUTTON_PORT_B] |= !DL_IN_PORT;
-    }
 
 }
