@@ -37,7 +37,7 @@ void checkbuttons(void)
     
     if (!xboxmode)
     {
-        gPollPacket[BUTTON_PORT_A] |= !Y_IN_PORT << 3;
+        //Y will be set after trigger buttons are
         gPollPacket[BUTTON_PORT_A] |= !X_IN_PORT << 2;
         gPollPacket[BUTTON_PORT_A] |= !B_IN_PORT << 1;
         gPollPacket[BUTTON_PORT_A] |= !A_IN_PORT;
@@ -116,17 +116,18 @@ void checkbuttons(void)
     
     else if (SettingData.modeData == 4)
     {
-        // ZL/ZR act as digital press and half analog press
+        // ZL act as digital press and half analog press
         gPollPacket[BUTTON_PORT_B]   |= !L_IN_PORT << 6;
         gPollPacket[TRIGGER_PORT_L]  |= (!L_IN_PORT) ? 0x80 : 0x00;
-
+        
+        // L mapped to Y
+        gPollPacket[BUTTON_PORT_A]   |= !ZL_IN_PORT << 3;
+        
+        // ZR is digital press and half analog press
         gPollPacket[BUTTON_PORT_B]   |= !R_IN_PORT << 5;
         gPollPacket[TRIGGER_PORT_R]  |= (!R_IN_PORT) ? 0x80 : 0x00;
 
-        // Don't shift for the first check for the Z button (L/R mapped to Z button)
-        gPollPacket[BUTTON_PORT_B]   |= !DL_IN_PORT << 4;
-        // L mapped to Left Dpad
-        gPollPacket[BUTTON_PORT_B]   |= !ZL_IN_PORT;
+        // R mapped to Z
         gPollPacket[BUTTON_PORT_B]   |= !ZR_IN_PORT << 4;
     }
     
@@ -137,7 +138,8 @@ void checkbuttons(void)
     
     if (SettingData.modeData != 4)
     {
-        gPollPacket[BUTTON_PORT_B] |= !DL_IN_PORT;
+        //Have the Y button function outside of mode 4
+        gPollPacket[BUTTON_PORT_A] |= !Y_IN_PORT << 3;
     }
 
 }
