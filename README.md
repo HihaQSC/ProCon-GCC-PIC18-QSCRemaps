@@ -1,6 +1,12 @@
+
+
+
+
 **What is this?**
 
-This is version 2 firmware designed for PIC18LF26K83 microcontrollers which emulates the function of a GameCube controller as faithfully as possible. Other PIC18 microcontrollers are compatible, though you will likely need to utilize the migration tool in MPLAB code configurator.
+These are remaps based on the version 2 firmware of ProGCC, split by branches. I figured forking off of the main project and having the remap changes public would be good for the players should they have to ever to go another modder to reflash or get a new controller but want the same configs.
+
+Original Read Me:
 
 **Features:**
 
