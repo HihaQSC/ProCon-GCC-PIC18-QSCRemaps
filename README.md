@@ -2,7 +2,7 @@
 
 These are remaps based on the version 2 firmware of ProGCC, split by branches. I figured forking off of the main project and having the remap changes public would be good for the players should they have to ever to go another modder to reflash or get a new controller but want the same configs.
 
-For this specific remap L is rebound to act as an additional B button, additionally ZR acts as a Z and R acts as an analog/digital R. This remaps are contained with the ult mode of the controller.
+For this specific remap L is rebound to act as an additional B button, additionally ZR acts as a Z and R acts as an analog/digital R. These remaps are contained with the ult mode of the controller.
 
 Original Read Me:
 
