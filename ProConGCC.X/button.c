@@ -38,9 +38,15 @@ void checkbuttons(void)
     if (!xboxmode)
     {
         gPollPacket[BUTTON_PORT_A] |= !Y_IN_PORT << 3;
-        gPollPacket[BUTTON_PORT_A] |= !X_IN_PORT << 2;
+        // gPollPacket[BUTTON_PORT_A] |= !X_IN_PORT << 2; Rebind X in a sec
         gPollPacket[BUTTON_PORT_A] |= !B_IN_PORT << 1;
         gPollPacket[BUTTON_PORT_A] |= !A_IN_PORT;
+        
+        if (SettingData.modeData != 2)
+        {
+            //only bind X if not in Leftmost Trigger mode
+            gPollPacket[BUTTON_PORT_A] |= !X_IN_PORT << 2; 
+        }
     }
     // Xbox layout mode
     else
@@ -86,18 +92,20 @@ void checkbuttons(void)
     }
     else if (SettingData.modeData == 2)
     {
-        //ZL acts as digital+analog, L acts as analog half press
+        //ZL acts as digital+analog, L acts as analog min press
         gPollPacket[BUTTON_PORT_B]   |= !L_IN_PORT << 6;
         gPollPacket[TRIGGER_PORT_L]  |= (!L_IN_PORT) ? 0x80 : 0x00;
         
-        gPollPacket[TRIGGER_PORT_L]  |= (!ZL_IN_PORT) ? 0x80 : 0x00;
+        gPollPacket[TRIGGER_PORT_L]  |= (!ZL_IN_PORT) ? 0x59 : 0x00;
 
-        // ZR is digital press and half analog press
-        gPollPacket[BUTTON_PORT_B]   |= !R_IN_PORT << 5;
-        gPollPacket[TRIGGER_PORT_R]  |= (!R_IN_PORT) ? 0x80 : 0x00;
+        // ZR is X
+        gPollPacket[BUTTON_PORT_A]   |= !R_IN_PORT << 2;
 
-        // R mapped to Z
-        gPollPacket[BUTTON_PORT_B]   |= !ZR_IN_PORT << 4;
+        // R is analog min press
+        gPollPacket[TRIGGER_PORT_R]  |= (!R_IN_PORT) ? 0x59 : 0x00;
+        
+        //X is Z
+        gPollPacket[BUTTON_PORT_B]   |= !X_IN_PORT << 4;
     }
     else if (SettingData.modeData == 3)
     {
