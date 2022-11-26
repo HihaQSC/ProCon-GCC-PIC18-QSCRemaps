@@ -94,9 +94,10 @@ void checkbuttons(void)
     {
         //ZL acts as digital+analog, L acts as analog min press
         gPollPacket[BUTTON_PORT_B]   |= !L_IN_PORT << 6;
-        gPollPacket[TRIGGER_PORT_L]  |= (!L_IN_PORT) ? 0x80 : 0x00;
+        gPollPacket[TRIGGER_PORT_L]  |= (!L_IN_PORT) ? 0x31 : 0x00;
         
-        gPollPacket[TRIGGER_PORT_L]  |= (!ZL_IN_PORT) ? 0x59 : 0x00;
+        //L is analog min press 
+        gPollPacket[TRIGGER_PORT_L]  |= (!ZL_IN_PORT) ? 0x31 : 0x00;
 
         // ZR is X
         gPollPacket[BUTTON_PORT_A]   |= !R_IN_PORT << 2;
