@@ -116,8 +116,8 @@ void checkbuttons(void)
     
     else if (SettingData.modeData == 4)
     {
-        // ZL act as a analog press for a GCC value of 49 (GCC ranges 0-140), or 89 in the 0-255 range
-        gPollPacket[TRIGGER_PORT_L]  |= (!L_IN_PORT) ? 0x59 : 0x00;
+        // ZL act as a analog press for a value of 49
+        gPollPacket[TRIGGER_PORT_L]  |= (!L_IN_PORT) ? 0x31 : 0x00;
         
         // L mapped to Y
         gPollPacket[BUTTON_PORT_A]   |= !ZL_IN_PORT << 3;
@@ -132,7 +132,7 @@ void checkbuttons(void)
     
     gPollPacket[BUTTON_PORT_B] |= !DU_IN_PORT << 3;
     gPollPacket[BUTTON_PORT_B] |= !DD_IN_PORT << 2;
-    
+    gPollPacket[BUTTON_PORT_B] |= !DL_IN_PORT;
     gPollPacket[BUTTON_PORT_B] |= !DR_IN_PORT << 1;
     
     if (SettingData.modeData != 4)
