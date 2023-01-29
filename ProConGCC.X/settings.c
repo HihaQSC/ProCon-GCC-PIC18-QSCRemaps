@@ -47,12 +47,12 @@ void setdefaultsettings(void)
     SettingData.cy_highMultiplier = 194U;
     SettingData.cy_lowMultiplier = 204U;
     
-    SettingData.x_snapback_strength = 0x2;
+    SettingData.x_snapback_strength = 0x2; //default strength of 2 instead of 0
     SettingData.y_snapback_strength = 0x2;
     
     setstickmultipliers();
 
-    SettingData.modeData = 4U;
+    SettingData.modeData = 4U; //ult mode by default
     // 0 - Dual mode: ZL/ZR act as Analog AND Digital press for L/R
     // 1 - Rightmost analog mode: ZL acts as L, L acts as Z, ZR is full press, R is half analog press
     // 2 - Leftmost analog mode: ZL is digital L, L is analog L, ZR is R digital/analog, R is Z
@@ -60,7 +60,7 @@ void setdefaultsettings(void)
     // If MSB is set to 1, Xbox button layout is enabled, otherwise default Procon layout
     
     SettingData.rumbleData = 0;
-    SettingData.deadZone = 4U;
+    SettingData.deadZone = 4U; //default deadzone of 1 instead  of 4
 }
 
 #define SETTING_NOT_LIVE    0x0
