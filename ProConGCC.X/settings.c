@@ -52,7 +52,7 @@ void setdefaultsettings(void)
     
     setstickmultipliers();
 
-    SettingData.modeData = 0U;
+    SettingData.modeData = 4U;
     // 0 - Dual mode: ZL/ZR act as Analog AND Digital press for L/R
     // 1 - Rightmost analog mode: ZL acts as L, L acts as Z, ZR is full press, R is half analog press
     // 2 - Leftmost analog mode: ZL is digital L, L is analog L, ZR is R digital/analog, R is Z
