@@ -47,8 +47,8 @@ void setdefaultsettings(void)
     SettingData.cy_highMultiplier = 194U;
     SettingData.cy_lowMultiplier = 204U;
     
-    SettingData.x_snapback_strength = 0x0;
-    SettingData.y_snapback_strength = 0x0;
+    SettingData.x_snapback_strength = 0x2;
+    SettingData.y_snapback_strength = 0x2;
     
     setstickmultipliers();
 
@@ -60,7 +60,7 @@ void setdefaultsettings(void)
     // If MSB is set to 1, Xbox button layout is enabled, otherwise default Procon layout
     
     SettingData.rumbleData = 0;
-    SettingData.deadZone = 16U;
+    SettingData.deadZone = 4U;
 }
 
 #define SETTING_NOT_LIVE    0x0
